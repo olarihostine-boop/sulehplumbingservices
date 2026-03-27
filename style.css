@@ -429,23 +429,112 @@ section h2 {
 .footer-bottom p { font-size: 13px; color: #666; }
 
 /* ── Responsive ── */
+
+/* ── Tablet (≤1024px) ── */
 @media (max-width: 1024px) {
-    .services-grid, .gallery-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-inner { grid-template-columns: 1fr 1fr; }
+    .about-grid { gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
+    .section { padding: 60px 0; }
+    .container { padding: 0 16px; }
+
+    /* Typography */
     section h2 { font-size: 28px; }
-    .hero h1 { font-size: 38px; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .about-badge { bottom: 16px; right: 16px; }
-    .services-grid, .gallery-grid, .why-grid { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 16px; border-top: 1px solid var(--grey-border); gap: 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 12px 16px; border-radius: 0; border-bottom: 1px solid var(--grey-border); }
+    .hero h1 { font-size: 36px; }
+
+    /* Top bar */
+    .top-bar-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .top-bar span { margin-right: 0; }
+    .top-bar-socials { flex-wrap: wrap; gap: 12px; }
+
+    /* Navbar */
     .nav-inner { position: relative; }
     .hamburger { display: flex; }
-    .form-row { grid-template-columns: 1fr; }
-    .top-bar-inner { flex-direction: column; align-items: flex-start; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--white);
+        padding: 8px 0;
+        border-top: 1px solid var(--grey-border);
+        gap: 0;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-links a {
+        padding: 12px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid var(--grey-border);
+        display: block;
+    }
+    .nav-cta { border-radius: 0 !important; }
+
+    /* Hero */
+    .hero { min-height: 75vh; }
+    .hero-sub { font-size: 15px; }
+    .hero-actions { flex-direction: column; gap: 12px; }
+    .hero-actions .btn { text-align: center; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-badge {
+        position: static;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 16px;
+        padding: 14px 20px;
+        border-radius: 6px;
+    }
+    .badge-num { font-size: 28px; }
+
+    /* Services / Why */
+    .services-grid, .why-grid { grid-template-columns: 1fr; }
+
+    /* Gallery */
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; }
     .contact-info-box { padding: 28px 20px; }
+    .contact-form-box { padding: 28px 20px; }
+    .contact-details li { flex-wrap: nowrap; align-items: center; }
+    .contact-details li a[href] {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    /* Form */
+    .form-row { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    .footer { padding: 40px 0 0; }
+}
+
+/* ── Small phones (≤480px) ── */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 28px; }
+    .hero { min-height: 65vh; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 24px 20px; }
+    .contact-form-box { padding: 24px 16px; }
+    .contact-info-box { padding: 24px 16px; }
+    .btn { padding: 12px 24px; font-size: 14px; }
+    section h2 { font-size: 24px; }
+    .about-badge { padding: 12px 16px; }
+    .badge-num { font-size: 24px; }
+    .top-bar { display: none; } /* hide top bar on very small screens to prevent clutter */
 }
